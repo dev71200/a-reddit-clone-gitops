@@ -11,7 +11,7 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/dev71200/a-reddit-clone-gitops.git'
+                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/dev71200/a-reddit-clone-gitops'
              }
          }
          stage("Update the Deployment Tags") {
@@ -32,7 +32,7 @@ pipeline {
                     git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/Ashfaque-9x/a-reddit-clone-gitops main"
+                    sh "git push https://github.com/dev71200/a-reddit-clone-gitops main"
                 }
             }
          }
